@@ -83,6 +83,7 @@
           </li>
           
           <li><a href="contact.html">Contact Us</a></li>
+
         </ul>
       </nav><!-- .navbar -->
 
@@ -96,6 +97,64 @@
         <div class="col-xl-4">
           <h2 data-aos="fade-up">Welcome!</h2>
           <blockquote data-aos="fade-up" data-aos-delay="100">
+		  
+	
+	<script>
+		function showTime() {
+			var date = new Date();
+			var hour = date.getHours();
+			var min = date.getMinutes();
+			var sec = date.getSeconds();
+			var ampm = hour < 12 ? "AM" : "PM";
+			hour = hour % 12;
+			hour = hour ? hour : 12;
+			min = min < 10 ? "0" + min : min;
+			sec = sec < 10 ? "0" + sec : sec;
+			var time = hour + ":" + min + ":" + sec + " " + ampm;
+			document.getElementById("realtimeclock").innerText = time;
+			setTimeout(showTime, 1000);
+		}
+	</script>
+	
+	<body onload="showTime()">
+	
+	<p>The current time is: <span id="realtimeclock"></span></p>
+	
+	
+	
+	<p id="date"></p>
+
+	<script>
+		const currentDate = new Date();
+
+		const options = { 
+			month: 'long', 
+			day: 'numeric', 
+			year: 'numeric' 
+		};
+
+		document.getElementById("date").innerHTML = "The current date is " + currentDate.toLocaleDateString('en-US', options);
+	</script>
+
+
+</body>
+  
+  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
             <p></p>
           </blockquote>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
