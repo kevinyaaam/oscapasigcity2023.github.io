@@ -98,43 +98,45 @@
           <h2 data-aos="fade-up">Welcome!</h2>
           <blockquote data-aos="fade-up" data-aos-delay="100">
 		  
-		<div id="time"></div>
-		
-		<script>
-      function startTime() {
-        var today = new Date();
-        var hour = today.getHours();
-        var minute = today.getMinutes();
-        var second = today.getSeconds();
-        minute = checkTime(minute);
-        second = checkTime(second);
-        document.getElementById('clock').innerHTML = hour + ":" + minute + ":" + second;
-        var t = setTimeout(startTime, 500);
-      }
+	<script>
+		function showTime() {
+			var date = new Date();
+			var hour = date.getHours();
+			var min = date.getMinutes();
+			var sec = date.getSeconds();
+			var ampm = hour < 12 ? "AM" : "PM";
+			hour = hour % 12;
+			hour = hour ? hour : 12;
+			min = min < 10 ? "0" + min : min;
+			sec = sec < 10 ? "0" + sec : sec;
+			var time = hour + ":" + min + ":" + sec + " " + ampm;
+			document.getElementById("realtimeclock").innerText = time;
+			setTimeout(showTime, 1000);
+		}
+	</script>
+	
+	<body onload="showTime()">
+	
+	<p>The current time is: <span id="realtimeclock"></span></p>
+	
+	
+	
+	<p id="date"></p>
 
-      function checkTime(i) {
-        if (i < 10) {
-          i = "0" + i;
-        } 
-        return i;
-      }
-    </script>
-    <style>
-      #clock {
-        font-size: 36px;
-        font-weight: bold;
-        text-align: center;
-        padding: 20px;
-      }
-    </style>
-  </head>
-  <body onload="startTime()" >
-    <div id="clock"></div>
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script>
-    moment.tz.setDefault("Asia/Manila");
-  </script>
+	<script>
+		const currentDate = new Date();
+
+		const options = { 
+			month: 'long', 
+			day: 'numeric', 
+			year: 'numeric' 
+		};
+
+		document.getElementById("date").innerHTML = "The current date is " + currentDate.toLocaleDateString('en-US', options);
+	</script>
+
+
+</body>
 	
   
   
